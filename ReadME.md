@@ -25,6 +25,7 @@ AngularJS-powered HTML5 Markdown editor.
 - Celo extension wallet (requires a Chrome-based web browser, like Chrome or Brave)
 
 ## Modules
+
 ### Jam 0: Learn about Celo
 
 To learn more about the background of Celo, the technology stack, and the fundamental protocol, see the Celo Overview page of the Celo documentation. Here are some examples of video tutorials you can use if you prefer:
@@ -33,27 +34,37 @@ To learn more about the background of Celo, the technology stack, and the fundam
 - [https://www.youtube.com/watch?v=kO6Wm8pgKXU] - Developing & deploying your first DApp on Celo
 - [https://www.youtube.com/watch?v=bp2loYXPhbM&t=16s] - Celo Tech Talks Building a mobile first blockchain platform.
 
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
+## Jam 1. Sending Transactions
+### Step up
 
-## Installation
-
-Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
-
-Install the dependencies and devDependencies and start the server.
+1. Clone this GitHub repo: [https://github.com/critesjosh/celo-transactions-lesson]
 
 ```sh
-cd dillinger
-npm i
-node app
+ git clone https://github.com/critesjosh/celo-transactions-lesson.git
 ```
 
-For production environments...
+2. Go into the cloned project and install the dependencies
 
 ```sh
-npm install --production
-NODE_ENV=production node app
+ cd celo-transactions-lesson && yarn install
 ```
+3. Once the dependencies are installed, create a new file in the project root called .env. Then run
+
+```sh
+ node createAccount.js
+```
+
+This will print new Celo account details. Copy the private key for your new account into a _PRIVATE_KEY_ variable in .env. It should look something like this
+
+```sh
+PRIVATE_KEY="0x7b756cc34cdd08dfc96bea50101fdd62abb8a7ba9c083881dc6f6bd3bda35408"
+```
+Congratulations! You just created a new account on Celo! This private key controls access to the associated account, so this is highly sensitive data. Anyone with this key can send transactions on behalf of the account. You can see how this account is created in the ```sh createAccount.js ``` file.
+
+4. Copy the address that is printed. Fund the account address on the Alfajores test net here: [https://celo.org/developers/faucet]
+
+5. Create an account on Figment Data Hub [https://figment.io/datahub/celo/] and get your API key and add it to the FIGMENT_API_KEY in .env. This will allow you to connect to the Celo networks. Your .env file should now look something like this.
+
 
 ## Plugins
 
