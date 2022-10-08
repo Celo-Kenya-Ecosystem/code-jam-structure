@@ -1,4 +1,4 @@
-# Code Jam Syllabus
+# Code Jam Structure
 ##  ✨Code Jam: Getting Started with Celo✨
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
