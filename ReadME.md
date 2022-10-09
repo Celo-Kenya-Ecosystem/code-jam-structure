@@ -1,9 +1,6 @@
 # Code Jam Structure
 ##  ✨Code Jam: Getting Started with Celo✨
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-AngularJS-powered HTML5 Markdown editor.
-
 ## Objectives
 
 - Learn more about Celo
@@ -59,11 +56,67 @@ This will print new Celo account details. Copy the private key for your new acco
 ```sh
 PRIVATE_KEY="0x7b756cc34cdd08dfc96bea50101fdd62abb8a7ba9c083881dc6f6bd3bda35408"
 ```
-Congratulations! You just created a new account on Celo! This private key controls access to the associated account, so this is highly sensitive data. Anyone with this key can send transactions on behalf of the account. You can see how this account is created in the ```sh createAccount.js ``` file.
+Congratulations! You just created a new account on Celo! This private key controls access to the associated account, so this is highly sensitive data. Anyone with this key can send transactions on behalf of the account. You can see how this account is created in the 
+```sh 
+createAccount.js file
+``` 
 
 4. Copy the address that is printed. Fund the account address on the Alfajores test net here: [https://celo.org/developers/faucet]
 
 5. Create an account on Figment Data Hub [https://figment.io/datahub/celo/] and get your API key and add it to the FIGMENT_API_KEY in .env. This will allow you to connect to the Celo networks. Your .env file should now look something like this.
+
+6. Now you are ready to go through lesson.js, following the provided details and uncommenting the function calls to run the associated code.
+
+## Lesson.js
+
+The lesson.js file contains example code with commentary on how to create transactions on the Celo network using a variety of tools. It starts by creating simple transactions manually, so you can see what is involved, then goes over how ContractKit and Celo Ethers.js do the same thing, but make it easier for you as a developer. ContractKit uses web3.js under the hood, so you will see many references to web3.js when using ContractKit.
+
+As you go through the sections of the file, some of them will have functions that show you how to create transactions and send them to the network. To run the function, uncomment the function call and then run the script by entering node lesson.js in the terminal from the project root directory. The functions will print output to the terminal so you can see what is going on.
+Once you are done running that function, comment it out again with two slashes (//).
+
+
+## Jam 2. Run a Celo Node
+Running a node helps support the core infrastructure of a blockchain network. Go through this page of the Celo Docs that shows you how to run a full node. In the near future, Celo will support incentives for running full nodes to help maintain a robust network that can serve millions of mobile users.
+
+# Sending transactions
+
+Try sending transactions through your local node, rather than using the remote node. You can find some more info about running an "ultralight" node that will sync in seconds on this page (so you don't have to wait for the full node to sync).
+
+# Connect with CeloCLI
+Celo has a command line interface that makes it easy for relatively technical users to read and write to the Celo blockchain without having to rely on a web interface.
+
+- Once you have a node up and running, install celocli via npm. Instructions here.
+- Connect celocli to your locally running node.
+- Try looking up the token price of cUSD from the price of oracle contracts.
+- Try transferring some CELO from your node account.
+- You can find more info about the Celo CLI commands on the docs page here. Scroll down the page tree on the left to see the page list.
+
+## Jam  3.  Build a Desktop Webpage
+For this section, you will be building off of the repo that we started working on earlier.
+
+You can paste the private key from your .env file into the Celo Extension Wallet to import your funded Alfajores testnet account into the browser extension.
+
+1. Start in the celo-transactions-lesson project root. Move into the webpage directory.
+  
+  ```sh  
+  cd webpage && yarn install 
+  ```
+ 
+ 2. Install the Celo Extension Wallet from the chrome web store [https://chrome.google.com/webstore/detail/celoextensionwallet/kkilomkmpmkbdnfelcpgckmpcaemjcdh]. Once it is installed, select the "Alfajores Test Network" from the "Networks" dropdown.
+ 
+   ```sh 
+   { meta mask wallet or celo extension } 
+   ```
+
+3. Run yarn dev to start watchify and the lite-server to serve the page at localhost:3000. Watchify will watch for any updates to index.js and automatically bundle the new file for the browser.
+
+
+4. Review the code in index.js.
+
+ There are 3 basic functions that make up this dapp.
+
+
+
 
 
 ## Plugins
@@ -119,40 +172,6 @@ Generating pre-built zip archives for distribution:
 
 ```sh
 gulp build dist --prod
-```
-
-## Docker
-
-Dillinger is very easy to install and deploy in a Docker container.
-
-By default, the Docker will expose port 8080, so change this within the
-Dockerfile if necessary. When ready, simply use the Dockerfile to
-build the image.
-
-```sh
-cd dillinger
-docker build -t <youruser>/dillinger:${package.json.version} .
-```
-
-This will create the dillinger image and pull in the necessary dependencies.
-Be sure to swap out `${package.json.version}` with the actual
-version of Dillinger.
-
-Once done, run the Docker image and map the port to whatever you wish on
-your host. In this example, we simply map port 8000 of the host to
-port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
-
-```sh
-docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger <youruser>/dillinger:${package.json.version}
-```
-
-> Note: `--capt-add=SYS-ADMIN` is required for PDF rendering.
-
-Verify the deployment by navigating to your server address in
-your preferred browser.
-
-```sh
-127.0.0.1:8000
 ```
 
 ## License
