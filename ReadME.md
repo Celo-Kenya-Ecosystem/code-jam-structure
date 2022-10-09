@@ -67,7 +67,7 @@ createAccount.js file
 
 6. Now you are ready to go through lesson.js, following the provided details and uncommenting the function calls to run the associated code.
 
-## Lesson.js
+#### Lesson.js
 
 The lesson.js file contains example code with commentary on how to create transactions on the Celo network using a variety of tools. It starts by creating simple transactions manually, so you can see what is involved, then goes over how ContractKit and Celo Ethers.js do the same thing, but make it easier for you as a developer. ContractKit uses web3.js under the hood, so you will see many references to web3.js when using ContractKit.
 
@@ -78,11 +78,11 @@ Once you are done running that function, comment it out again with two slashes (
 ## Jam 2. Run a Celo Node
 Running a node helps support the core infrastructure of a blockchain network. Go through this page of the Celo Docs that shows you how to run a full node. In the near future, Celo will support incentives for running full nodes to help maintain a robust network that can serve millions of mobile users.
 
-# Sending transactions
+#### Sending transactions
 
 Try sending transactions through your local node, rather than using the remote node. You can find some more info about running an "ultralight" node that will sync in seconds on this page (so you don't have to wait for the full node to sync).
 
-# Connect with CeloCLI
+#### Connect with CeloCLI
 Celo has a command line interface that makes it easy for relatively technical users to read and write to the Celo blockchain without having to rely on a web interface.
 
 - Once you have a node up and running, install celocli via npm. Instructions here.
